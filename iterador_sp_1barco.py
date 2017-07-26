@@ -17,7 +17,7 @@ import matplotlib.patches as patches
 
 delta = 0.01
 #creamos los barcos
-bi = barcosolo.barco()
+bi = barcosolo.barco(1)
 
 
 #creamos la cadena de momento pequeñita porque es para probar

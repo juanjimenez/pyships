@@ -31,18 +31,28 @@ rotulos saldran descolocados
 """
 
 
-arrow(cd5.cms[0,2],cd5.cms[1,2],cd5.normal[0,2],cd5.normal[1,2],color = 'r')
-arrow(cd5.cms[0,2],cd5.cms[1,2],cd5.para[0,2],cd5.para[1,2],color = 'g')
-arrow(0,0,cd5.cms[0,1],cd5.cms[1,1],color = 'b')
-arrow(0,0,cd5.cms[0,2],cd5.cms[1,2],color = 'b')
-arrow(cd5.cms[0,1],cd5.cms[1,1],cd5.normal[0,1],cd5.normal[1,1],color = 'r')
-arrow(cd5.cms[0,1],cd5.cms[1,1],cd5.para[0,1],cd5.para[1,1],color = 'g')
-axis([0,6,0,7])
-text(1.0,2,r'$\vec{r}_{i+1}$')
-text(0.5,2,r'$\vec{r}_{i}$')
-text(1.5,3.4,r'$\vec{n}_i$')
-text(0.7,3.6,r'$\vec{p}_i$')
-text(2.0,3.2,r'$\vec{n}_{i+1}$')
-text(1.3,2.7,r'$\vec{p}_{i+1}$')
+arrow(cd5.cms[0,2],cd5.cms[1,2],0.5*cd5.normal[0,2],0.5*cd5.normal[1,2],\
+length_includes_head=True,color='k')
+
+arrow(cd5.cms[0,2],cd5.cms[1,2],0.5*cd5.para[0,2],0.5*cd5.para[1,2],\
+length_includes_head=True,color='k')
+arrow(0,0,cd5.cms[0,1],cd5.cms[1,1],length_includes_head=True,color='k')
+arrow(0,0,cd5.cms[0,2],cd5.cms[1,2],length_includes_head=True,color='k')
+arrow(cd5.cms[0,1],cd5.cms[1,1],0.5*cd5.normal[0,1],0.5*cd5.normal[1,1],\
+length_includes_head=True,color='k')
+arrow(cd5.cms[0,1],cd5.cms[1,1],0.5*cd5.para[0,1],0.5*cd5.para[1,1],\
+length_includes_head=True,color='k')
+#axis([0,6,0,7])
+text(1,0.32,r'$\vec{r}_{i+1}$')
+text(0.8,0.72,r'$\vec{r}_{i}$')
+
+
+text(1.6,1.16,r'$\vec{n}_{i}$',rotation=180/pi*arctan(cd5.normal[1,1]/cd5.normal[0,1]))
+text(1.23,1.25,r'$\vec{p}_{i}$',rotation=180/pi*arctan(cd5.para[1,1]/cd5.para[0,1])+90)
+text(1.85,0.75,r'$\vec{n}_{i+1}$',rotation=180/pi*arctan(cd5.normal[1,2]/cd5.normal[0,2]))
+text(1.6,0.58,r'$\vec{p}_{i+1}$',rotation=180/pi*arctan(cd5.para[1,2]/cd5.para[0,2]))
 xlabel('x')
 ylabel('y')
+axis([0,3.5,0,3.5])
+gca().axes.get_xaxis().set_ticklabels([])
+gca().axes.get_yaxis().set_ticklabels([])
